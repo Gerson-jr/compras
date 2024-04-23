@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/global/">
+    <title>Lista de compras</title>
+</head>
+<body>
+    <header>
+        <h1>Lista de compras</h1>
+    </header>
+
+    <nav></nav>
+
+    <main>
+        <section id="itens">
+            <h2>Itens da lista</h2>
+            <ul id="listaItens"></ul>
+        </section>
+
+        <section>
+            <h1>Adicione seus itens</h1>
+            <div>
+                <form id="formulario">
+                    <input type="text" id="novoItem" placeholder="Digite um novo item">
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+    <script>
+        // Função para adicionar item à lista
+        function adicionarItem() {
+            // Captura o valor do input
+            var novoItem = document.getElementById("novoItem").value;
+
+            // Verifica se o input não está vazio
+            if (novoItem !== "") {
+                // Cria um novo elemento li
+                var novoElemento = document.createElement("li");
+                // Adiciona o texto do input ao elemento li
+                novoElemento.textContent = novoItem;
+                // Adiciona o novo elemento à lista
+                document.getElementById("listaItens").appendChild(novoElemento);
+                // Limpa o input
+                document.getElementById("novoItem").value = "";
+            }
+        }
+
+        // Event listener para adicionar item ao clicar no botão de adicionar
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+            adicionarItem(); // Chama a função para adicionar o item
+        });
+    </script>
+</body>
+</html>
